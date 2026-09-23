@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ⚙️ Configurações (senha do formulário público)
+    match /configuracoes/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // 📍 Locais - leitura pública para consultas
+    match /Locais/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // 👥 Pessoas - cadastro público, leitura protegida
+    match /Pessoas/{pessoaId} {
+      allow read: if request.auth != null;
+      allow create, update: if true;
+      allow delete: if request.auth != null;
+    }
+
+    // 📅 Escalas - leitura pública, escrita só logado
+    match /Escalas/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // 🔐 Controle de acesso - só super usuário escreve
+    match /accessControl/{docId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null &&
+        request.auth.token.email == "bivardourado@gmail.com";
+    }
+
+    // 🔒 Tudo o mais (ResponsaveisMaterial, ControleRecadastramento, etc.)
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
