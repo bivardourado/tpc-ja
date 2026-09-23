@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hub TPUBLI – Central de Navegação</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/header-fullwidth.css" />
+    <style>
+        body {
+            visibility: hidden;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hub-container {
+            max-width: 1000px;
+            /* Mais compacto como na imagem */
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Seção de Saudação Centralizada */
+        .greeting-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4rem;
+        }
+
+        .greeting-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #444;
+        }
+
+        .greeting-text {
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .greeting-text strong {
+            font-weight: 700;
+        }
+
+        /* Grid de 3 Colunas (Launchpad) */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .hub-card {
+            background: #222020;
+            /* Mesma cor do cabeçalho */
+            border: 1px solid #333333;
+            /* Adicionada borda sutil da imagem */
+            border-radius: 12px;
+            padding: 2.5rem 1.5rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .hub-card:hover {
+            background: #1a365d;
+            /* Azulado conforme a referência */
+            border-color: #3182ce;
+            /* Borda azul vibrante no hover */
+        }
+
+        .hub-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 0.8rem;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .hub-card-description {
+            font-size: 0.85rem;
+            color: #888888;
+            line-height: 1.4;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        /* Ajustes Mobile */
+        @media (max-width: 850px) {
+            .hub-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hub-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hub-container {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-render"></div>
+
+    <div class="hub-container">
+        <!-- Saudação Superior -->
+        <div class="greeting-bar">
+            <img id="greet-avatar" src="" alt="" class="greeting-avatar" style="display: none;">
+            <div class="greeting-text">
+                <span id="greet-prefix">Bom dia,</span> <strong id="greet-name">...</strong>
+            </div>
+        </div>
+
+        <!-- Grade de Ferramentas -->
+        <div class="hub-grid">
+            <a class="hub-card" href="/admin">
+                <div class="hub-card-title">Escalas</div>
+                <div class="hub-card-description">Gere e visualize as escalas mensais</div>
+            </a>
+
+            <a class="hub-card" href="/participantes">
+                <div class="hub-card-title">Participantes</div>
+                <div class="hub-card-description">Gerencie todos os participantes cadastrados</div>
+            </a>
+
+            <a class="hub-card" href="/locais">
+                <div class="hub-card-title">Locais</div>
+                <div class="hub-card-description">Configure os locais de serviço</div>
+            </a>
+
+            <a class="hub-card" href="/form">
+                <div class="hub-card-title">Cadastro</div>
+                <div class="hub-card-description">Preencha sua disponibilidade para novo cadastro</div>
+            </a>
+
+            <a class="hub-card" href="/analise">
+                <div class="hub-card-title">Análises</div>
+                <div class="hub-card-description">Consultas e relatórios do sistema</div>
+            </a>
+
+            <a class="hub-card" href="/ranking">
+                <div class="hub-card-title">Ranking</div>
+                <div class="hub-card-description">Veja a participação mensal de cada voluntário</div>
+            </a>
+
+            <a class="hub-card" href="/acesso">
+                <div class="hub-card-title">Controle de Acesso</div>
+                <div class="hub-card-description">Gerencie permissões de usuários</div>
+            </a>
+        </div>
+    </div>
+
+    <footer class="site-footer">© 2025 TPUBLI PE</footer>
+
+    <script type="module" src="/src/hub.js"></script>
+</body>
+
+</html>

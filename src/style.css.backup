@@ -1,0 +1,630 @@
+:root {
+  /* Paleta de Cores - Dark Mode Premium */
+  --bg-color: #000000;
+  --surface-color: #1E1E1E;
+  --surface-hover: #2A2A2A;
+
+  --primary-color: #4A90E2;
+  /* Azul elegante */
+  --primary-hover: #357ABD;
+  --text-primary: #E0E0E0;
+  --text-secondary: #A0A0A0;
+  --border-color: #333333;
+  --danger-color: #CF6679;
+  --logo-orange: #357ABD;
+  /* Laranja vibrante para o logo */
+
+  /* Tipografia */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  box-sizing: border-box;
+  align-items: center;
+  /* Texto preto para contraste com laranja */
+  font-weight: 700;
+  font-size: 0.9rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  /* Quadrado com leve arredondamento */
+  letter-spacing: -0.5px;
+}
+
+.logo-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Navegação do Header */
+.header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.header-nav a:hover {
+  color: var(--text-primary);
+  background-color: var(--surface-hover);
+}
+
+.header-nav a.active {
+  color: var(--primary-color);
+  /* background-color: rgba(74, 144, 226, 0.1); Removido fundo para ficar mais limpo no header */
+}
+
+/* Layout do Dashboard */
+.dashboard-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.dashboard-header p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.95rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/* Classe para forçar 3 colunas */
+.grid-three-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .grid-three-columns {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+.dashboard-card {
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-card h2 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Componentes de Formulário */
+input,
+select {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 40ch;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Estilos específicos para checkboxes */
+input[type="checkbox"] {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  vertical-align: middle;
+}
+
+button {
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+button.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Tabelas */
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--surface-hover);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Utilitários */
+.text-danger {
+  color: var(--danger-color);
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.placeholder-text {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Ajustes Específicos */
+.scale-controls {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.location-list {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.location-item {
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.location-item:hover {
+  background-color: var(--surface-hover);
+}
+
+.btn-delete:hover {
+  background-color: rgba(207, 102, 121, 0.2);
+  color: var(--danger-color);
+}
+
+/* Estilos do ScaleConfigurator */
+.scale-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+/* ============================================
+   ESTILOS DO FORMULÁRIO DE DISPONIBILIDADE
+   ============================================ */
+
+/* Container dos dois cards lado a lado */
+.form-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .form-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card individual do formulário */
+.form-card {
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.form-card h2 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+/* Grupos de campos do formulário */
+.form-card .form-group {
+  margin-bottom: 1rem;
+}
+
+.form-card .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-card .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-card .form-group input,
+.form-card .form-group select {
+  width: 100%;
+  max-width: none;
+}
+
+/* Configuração de disponibilidade semanal */
+.weekly-config {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.day-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: var(--bg-color);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.day-label {
+  min-width: 80px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.shifts-options {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.shifts-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.shifts-options label:hover {
+  color: var(--text-primary);
+}
+
+.availability-hint {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+/* Botão de ação no final do formulário */
+.form-actions-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.form-actions-bottom .btn-primary {
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+}
+
+/* ============================================
+   ESTILOS DO HUB
+   ============================================ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.card:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--primary-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(74, 144, 226, 0.2);
+}
+
+/* ============================================
+   ESTILOS DA PÁGINA DE CONSULTA
+   ============================================ */
+.consulta-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.consulta-form {
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.consulta-form h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.consulta-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.consulta-form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.consulta-form .form-group input {
+  width: 100%;
+  max-width: none;
+}
+
+.consulta-form .btn-primary {
+  width: 100%;
+}
+
+.escala-result {
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+}
+
+.escala-result h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.escala-item {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.escala-item:last-child {
+  margin-bottom: 0;
+}
+
+.escala-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.escala-date {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.escala-shift {
+  background-color: var(--surface-hover);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.escala-details {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.escala-detail-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.escala-detail-label {
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 80px;
+}
+
+.escala-detail-value {
+  color: var(--text-primary);
+}
+
+.no-escala-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #app {
+    padding: 1rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .header-nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .day-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .day-label {
+    min-width: auto;
+  }
+}

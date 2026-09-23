@@ -1,0 +1,369 @@
+/* ============================================
+   HEADER FIXO NO TOPO E FULL-WIDTH - ESTILO JW HUB
+   ============================================ */
+
+/* Remove scroll horizontal e otimiza para iOS */
+body,
+html {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    padding-top: 64px !important;
+}
+
+/* Saudação Estilo JW HUB */
+.hub-welcome-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0 3rem 0;
+    gap: 1rem;
+}
+
+.greeting-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.greeting-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.greeting-text {
+    font-size: 1.4rem;
+    color: var(--text-primary);
+}
+
+.greeting-text strong {
+    font-weight: 700;
+}
+
+/* Altura do cabeçalho fixo */
+
+/* Header fixo no topo ocupando toda largura da janela */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #222020;
+    border-bottom: 1px solid #333333;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Container flexível para logo e perfil */
+.header-container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 1.5rem 0 0 !important;
+    /* Logo encostada na esquerda (0), perfil com margem na direita (1.5rem) */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    height: 64px !important;
+    /* Altura exata do JW HUB */
+}
+
+/* Grupos para alinhar itens */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Logo Area - No JW a logo toca as bordas */
+.logo-area {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+}
+
+.logo-box {
+    background-color: #357ABD;
+    color: #fff;
+    font-weight: 900;
+    /* Mais robusto igual ao JW */
+    font-size: 1.4rem;
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    letter-spacing: -1px;
+}
+
+.header-page-title {
+    color: #FFFFFF;
+    font-size: 23px;
+    /* Aumentado para 23px para bater com a escala da imagem */
+    font-family: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+    font-weight: 400;
+    /* Regular/400 conforme o original */
+    margin-left: 30px;
+    /* Mais espaço como no JW Hub */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    /* Ajuste fino de kerning */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Breadcrumb / Link de Volta */
+.header-breadcrumb {
+    background-color: #000000;
+    /* Preto puro igual ao JW */
+    padding: 0.6rem 1.5rem;
+    border-bottom: 1px solid #1a1a1a;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Link de Volta (Página inicial azul) */
+.back-link {
+    color: #4a9eff;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: "Segoe UI Variable Small", "Segoe UI", sans-serif;
+    font-weight: 400;
+    /* Mantendo a clareza da referência */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: filter 0.2s;
+    -webkit-font-smoothing: antialiased;
+}
+
+.back-link:hover {
+    filter: brightness(1.2);
+    text-decoration: none;
+}
+
+.back-icon {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1;
+    margin-top: -1px;
+    display: inline-block;
+    color: #58a6ff;
+}
+
+/* Fonte padrão para seta limpa */
+
+
+/* Título opcional ao lado da logo */
+.logo-title {
+    margin-left: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #E0E0E0;
+}
+
+/* Navegação central/esquerda */
+.header-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-nav a {
+    color: #A0A0A0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.header-nav a:hover {
+    color: #E0E0E0;
+    background-color: #2A2A2A;
+}
+
+.header-nav a.active {
+    color: #4A90E2;
+}
+
+/* User Profile no extremo direito */
+.user-profile-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.user-profile-btn:hover {
+    transform: scale(1.1);
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid #444;
+    /* Borda sutil para destacar do fundo */
+}
+
+/* Menu Dropdown */
+.user-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #2A2A2A;
+    border: 1px solid #444;
+    border-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.user-info {
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+}
+
+.user-name {
+    color: #E0E0E0;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.user-email {
+    color: #A0A0A0;
+    font-size: 0.85rem;
+}
+
+.btn-logout-dropdown {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #FF6B6B;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-logout-dropdown:hover {
+    background-color: #383838;
+}
+
+/* Responsividade de Cabeçalho */
+@media (max-width: 900px) {
+    .header-nav {
+        gap: 8px;
+    }
+
+    .header-nav a {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .header-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        padding-right: 0.5rem !important;
+    }
+
+    .logo-box {
+        padding: 0 12px;
+        height: 44px;
+        font-size: 1rem;
+    }
+}
+
+/* ============================================
+   RODAPÉ ESTILO JW.ORG (ESTRUTURA E DIMENSÕES)
+   ============================================ */
+
+.site-footer {
+    background-color: #212121;
+    color: #bdbdbd;
+    padding: 1.5rem 0;
+    /* Altura robusta do JW */
+    font-size: 0.85rem;
+    border-top: 1px solid #333;
+    width: 100vw !important;
+    /* Força a largura da viewport */
+    margin-top: 5rem;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.footer-container {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 1.5rem !important;
+    display: flex;
+    justify-content: center;
+    /* Centralizado */
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.footer-copyright {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 1.25rem 0;
+    }
+
+    .footer-container {
+        padding: 0 1rem !important;
+    }
+}

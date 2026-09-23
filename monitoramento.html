@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitoramento de Recadastramento – TPUBLI</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .monitor-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .monitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stats-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .participant-list {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .participant-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .participant-item:last-child {
+            border-bottom: none;
+        }
+
+        .participant-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .participant-info h3 {
+            margin: 0 0 0.2rem 0;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .participant-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .status-updated {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .action-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .action-btn.danger {
+            background-color: #dc3545;
+        }
+
+        .action-btn.danger:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- O cabeçalho será injetado aqui pelo JS -->
+        <div id="monitoramento-content">
+            <div class="monitor-container">
+                <div class="monitor-header">
+                    <h2>Monitoramento de Recadastramento</h2>
+                    <div class="stats-card">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-count">0</div>
+                            <div class="stat-label">Total</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="updated-count" style="color: #2e7d32;">0</div>
+                            <div class="stat-label">Atualizados</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="pending-count" style="color: #c62828;">0</div>
+                            <div class="stat-label">Pendentes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área de Ação Admin -->
+                <div id="admin-actions"
+                    style="margin-bottom: 2rem; padding: 1.5rem; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107; display: none;">
+                    <h3 style="margin-top: 0; color: #856404;">⚠️ Área de Controle</h3>
+                    <p style="margin-bottom: 1rem; color: #856404;">
+                        Esta ação irá copiar todos os nomes e telefones atuais para uma lista de controle e
+                        <strong>APAGAR</strong> todos os cadastros do sistema principal.
+                        Isso forçará todos a se recadastrarem.
+                    </p>
+                    <button id="btn-iniciar-recadastramento" class="action-btn danger">
+                        Iniciar Processo de Recadastramento
+                    </button>
+                </div>
+
+                <input type="text" id="search-input" class="search-bar" placeholder="Buscar por nome ou telefone...">
+
+                <div id="loading" style="text-align: center; padding: 2rem;">
+                    Carregando dados...
+                </div>
+
+                <div class="participant-list" id="participant-list">
+                    <!-- Lista será preenchida via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/monitoramento.js"></script>
+</body>
+
+</html>

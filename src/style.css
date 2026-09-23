@@ -1,0 +1,520 @@
+/* ==========================================================================
+   Importação de Fontes
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   CSS Completo e Corrigido
+   ========================================================================== */
+
+:root {
+  /* Paleta de Cores - Dark Mode Premium */
+  --bg-color: #000000;
+  --surface-color: #222020;
+  --surface-hover: #373433;
+
+  --primary-color: #4A90E2;
+  --primary-hover: #357ABD;
+  --text-primary: #E0E0E0;
+  --text-secondary: #A0A0A0;
+  --border-color: #333333;
+  --danger-color: #CF6679;
+
+  /* Tipografia */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: color 0.2s;
+  padding: 0;
+  /* Removido padding para permitir full-width */
+  border-radius: 0;
+  /* Removido border-radius do body */
+}
+
+nav a:hover {
+  color: var(--text-primary);
+  background-color: var(--surface-hover);
+}
+
+nav a.active {
+  color: var(--primary-color);
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+/* Layout do Dashboard */
+.dashboard-header {
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+  /* Adicionado padding para o conteúdo não colar na borda */
+}
+
+.dashboard-header h1 {
+  font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  margin: 0;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+  /* Adicionado padding para o conteúdo não colar na borda */
+}
+
+.dashboard-card {
+  background-color: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s;
+}
+
+a.dashboard-card:hover {
+  background: #1a365d;
+  border-color: #3182ce;
+  text-decoration: none;
+}
+
+.dashboard-card h2 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Componentes de Formulário */
+input,
+select {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+button {
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: #424040;
+  border-color: #4a4848;
+}
+
+button.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Tabelas */
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--surface-hover);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Utilitários */
+.text-danger {
+  color: var(--danger-color);
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.placeholder-text {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.form-group {
+  position: relative;
+  /* Necessário para o autocomplete */
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+/* ==========================================================================
+   CONFIGURAÇÃO DE DISPONIBILIDADE (LAYOUT DE DUAS LINHAS)
+   ========================================================================== */
+
+.weekly-config {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* Espaço entre os blocos de cada dia */
+}
+
+/* Contêiner principal para cada dia */
+.day-row {
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.day-row:last-child {
+  border-bottom: none;
+}
+
+/* Estilo para o nome do dia (Primeira linha) */
+.day-label {
+  display: block;
+  /* Garante que ocupe sua própria linha */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  /* Espaço entre o nome do dia e a linha de checkboxes */
+}
+
+/* Contêiner para os checkboxes (Segunda linha) */
+.shifts-options {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* Espaço entre cada opção de turno */
+}
+
+/* Estilo para cada opção de turno (checkbox + texto) */
+.shifts-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  /* Espaço entre o checkbox e seu texto ("Manhã") */
+  font-size: 1rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+/* Padroniza o tamanho do checkbox */
+.shifts-options input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+}
+
+/* ==========================================================================
+   OUTROS ESTILOS
+   ========================================================================== */
+
+.site-footer {
+  width: 100%;
+  background: var(--surface-color);
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  opacity: 0.8;
+}
+
+.location-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.location-item:last-child {
+  border-bottom: none;
+}
+
+.loc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.loc-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.loc-detail {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.btn-delete {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  opacity: 0.6;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn-delete:hover {
+  opacity: 1;
+  background-color: rgba(207, 102, 121, 0.2);
+}
+
+.empty-message {
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 1rem;
+  text-align: center;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.inline-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ========================================================================== 
+   PASSWORD SCREEN STYLES
+   ========================================================================== */
+
+.password-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.password-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.password-card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 1.8rem;
+}
+
+.password-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.password-card .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.password-card input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+.password-card input[type="password"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.password-hint {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* ========================================================================== 
+   HOLIDAY LIST STYLES
+   ========================================================================== */
+
+.holiday-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.holiday-item:last-child {
+  border-bottom: none;
+}
+
+.btn-delete-holiday {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition: all 0.2s;
+  width: auto;
+}
+
+.btn-delete-holiday:hover {
+  color: var(--danger-color);
+  background-color: rgba(207, 102, 121, 0.1);
+}
+
+/* Edit button styles */
+.btn-edit {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  opacity: 0.6;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn-edit:hover {
+  opacity: 1;
+  background-color: rgba(74, 144, 226, 0.2);
+}
+
+/* Secondary button styles */
+.btn-secondary {
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-color);
+  border-color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   AUTOCOMPLETE SUGGESTIONS
+   ========================================================================== */
+.suggestions-list {
+  position: absolute;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  top: 100%;
+  /* Position right below the input */
+  left: 0;
+}
+
+.suggestion-item {
+  padding: 0.8rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: var(--surface-hover);
+}
